@@ -1,9 +1,6 @@
-﻿
+﻿using System;
 
-using System;
-using HDyar.MarkdownImporter;
-
-namespace ObsidianCanvas.Frontmatter
+namespace HDyar.MarkdownImporter
 {
 	[Serializable]
 	public class BlogPostFrontmatter : IFrontmatter
