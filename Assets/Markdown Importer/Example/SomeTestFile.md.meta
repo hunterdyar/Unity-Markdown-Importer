@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 144dcfa5e458ff14782e90c66d5a5709
+importerOverride: Assembly-CSharp-Editor:HDyar.MarkdownImporter:MarkdownImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 4d1bb0d294b4d53458e6d649cfa6675d, type: 3}
+  selectedTypeName: BlogPostFrontmatter
