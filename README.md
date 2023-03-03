@@ -9,6 +9,12 @@ This asset does not parse markdown - it doesn't convert it into, say, an object 
 
 ## How To Use
 
+### 0. Install
+
+This repository is an entire Unity project, but you don't need to use it.
+
+Download the project (Code > Download Zip). You can just copy the "Markdown Importer" folder from this project into your assets folder.
+
 ### 1. Create Frontmatter Type
 
 Create a class that is [Serializable] and implements IFrontmatter, which is an empty interface for convenience. The class should have public fields that match the names of the frontmatter. My simple YAML parser is not case sensitive when looking for field names.
