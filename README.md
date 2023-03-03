@@ -9,7 +9,7 @@ I don't think markdown is a great tool for game data, but I do think that there 
 
 ### 1. Create Frontmatter Type
 
-Create a class that is [Serializable] and implements IFrontmatter, which is an empty interface for convenience. The class should have public fields that match the names of the frontmatter:
+Create a class that is [Serializable] and implements IFrontmatter, which is an empty interface for convenience. The class should have public fields that match the names of the frontmatter. My simple YAML parser is not case sensitive when looking for field names.
 
   ```c#
 [Serializable]

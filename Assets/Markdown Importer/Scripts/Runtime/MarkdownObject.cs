@@ -11,15 +11,15 @@ namespace HDyar.MarkdownImporter
 		//but... frontmatter support into objects!
 
 		[SerializeReference]
-		public object frontmatter;
+		public object Frontmatter;
 		
 		[TextArea(10,20)]
-		public string frontmatterText;
+		public string FrontmatterText;
 
-		public TextAsset body;
+		public TextAsset Body;
 		public void ParseFrontmatter(Type frontType, string front)
 		{
-			frontmatterText = front;
+			FrontmatterText = front;
 			if (!string.IsNullOrEmpty(front))
 			{
 				//lol this is so gross. we're just throwing type safety out the window.
@@ -27,19 +27,19 @@ namespace HDyar.MarkdownImporter
 				MethodInfo method = typeof(SimpleFrontmatterParse).GetMethod("FromYAML");
 				method = method.MakeGenericMethod(new Type[] { frontType });
 
-				frontmatter = method?.Invoke(this, new object[] { front });
+				Frontmatter = method?.Invoke(this, new object[] { front });
 			}
 		}
 
 		public void Init(Type frontType, string front, TextAsset body)
 		{
 			ParseFrontmatter(frontType,front);
-			this.body = body;
+			this.Body = body;
 		}
 
 		public T GetFrontmatter<T>() where T : IFrontmatter
 		{
-			return (T)frontmatter;
+			return (T)Frontmatter;
 		}
 	}
 }
