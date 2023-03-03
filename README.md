@@ -1,9 +1,11 @@
 # Unity Markdown Importer
 Parse Frontmatter data from Markdown files in Unity. This custom importer creates a "Markdown Object" asset, which has a GetFrontmatter<T>() function for reading the data. The body text is left in a TextAsset to be read and used as normal.
 
-## Why Does This Exist
+## Why Does This Exist?
 
 I don't think markdown is a great tool for game data, but I do think that there are some excellent plaintext tools for authoring things like dialogue or narrative engines, such as [Ink](https://www.inklestudios.com/ink/). This effort, I hope, can continue to work with other tools. The body text of the markdown is imported as a TextAsset (just like a normal markdown file), so we can now combine frontmatter metadata with other plaintext data types for increased flexibility in our systems.
+
+This asset does not parse markdown - it doesn't convert it into, say, an object with rich text tags for use in TextMeshPro. If you're looking for that, try this project: [JimmyCushnie/FancyTextRendering](https://github.com/JimmyCushnie/FancyTextRendering).
 
 ## How To Use
 
