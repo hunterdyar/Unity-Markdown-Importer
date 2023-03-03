@@ -23,7 +23,10 @@ public class BlogPostFrontmatter : IFrontmatter
 
 ### 2. Select Importer
 
-Next, select the text asset for your markdown file (".md" or ".markdown" extensions recognized by default). ".md" files are handled as TextAssets by default, so change the "importer" dropdown to use the markdown importer.
+Next, select the text asset for your markdown file (".md" or ".markdown" extensions recognized by default).
+
+ ".md" files are handled as TextAssets by Unity, by default, so change the "importer" dropdown to use the markdown importer.
+
 ![Selecting import at top of asset import options](Documentation/importerDropdown.png)
 
 ### 3. Select Frontmatter Type 
@@ -43,15 +46,18 @@ public class Test : MonoBehaviour
 	{
 		BlogPostFrontmatter data = markdown.GetFrontmatter<BlogPostFrontmatter>();
 		Debug.Log("The title is " + data.title);
+		Debug.Log("Body text is " + markdown.Body.text);        
 	}
 }
 ```
 
-Reference an asset with the type "MarkdownObject", and get frontmatter data with the "GetFrontmatter" function. We have to specify the correct type here. Although the serialized object keeps a reference to this type, I want runtime code not to use janky assembly reflection setup. We get to keep our type safety and nice autocompletes this way. Since the "janky" code is only editor-side, I think it's a good-enough solution.
+Reference an asset with the type "MarkdownObject", and get frontmatter data with the "GetFrontmatter<T>" function. We have to specify the correct type here. Although the serialized object keeps a reference to this type, I want runtime code not to use janky assembly reflection setup. We get to keep our type safety and nice autocompletes this way. Since the "janky" code is only editor-side, I think it's a good-enough solution.
+
+We can read the rest of the file as a TextAsset with the ".Body" TextAsset property of the MarkdownObject. 
 
 ## Limitations
 
-Types are serialized as strings, so one can't have two frontmatter types with the same name (ie: in different namespaces).
+Types are serialized as strings, so one can't have two frontmatter types with the same name (i.e.: in different namespaces).
 
 Frontmatter MUST use three hyphens on the first line, and at the end of the frontmatter. This is standard. 
 
